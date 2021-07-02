@@ -373,15 +373,15 @@ Fall 1 --> T(n) = Θ(n)
 - [ ] Ähnliche Summe
 - [ ] ~~Alle kürzesten Wege (Floyd)~~ (Skript)
 - [ ] Approximation von Pi mit n-gon
-- [ ] Binomialkoeffizienten
+- [ ] ~~Binomialkoeffizienten~~
 - [ ] Catalan-Zahlen
 - [ ] Context free language recognition
 - [ ] deBoor
 - [ ] deCasteljau
 - [ ] ~~Editierabstand~~ (Skript)
-- [ ] Fibonacci-Zahlen
+- [ ] ~~Fibonacci-Zahlen~~ (Skript)
 - [ ] Independent sets in trees
-- [ ] Kettenmultiplikation von Matrizen
+- [ ] ~~Kettenmultiplikation von Matrizen~~
 - [ ] Kürzester Weg eines Springers
 - [ ] Längste aufsteigende Teilfolge
 - [ ] Längste gemeinsame Teilfolge
@@ -399,8 +399,8 @@ Fall 1 --> T(n) = Θ(n)
 ## Backtracking
 - [ ] Aufsteigende Türme auf den ersten m Reihen
 - [ ] Binpacking
-- [ ] Damenproblem
-- [ ] Färben von Graphen
+- [ ] ~~Damenproblem~~ (Skript)
+- [ ] ~~Färben von Graphen~~ (Skript)
 - [ ] Hamiltonian cycle
 - [ ] Hamiltonian path
 - [ ] Labyrinth
