@@ -345,3 +345,25 @@ b = 2
 f(n) = O(1)
 Fall 1 --> T(n) = Θ(n)
 ```
+
+## Greedy
+- [ ] A*-Algorithmus
+- [ ] Approximate bin packing
+- [ ] Clustering (based on MST)
+- [ ] Delaunay via Lawson
+- [ ] ~~Dijkstra~~ (Skript)
+- [ ] Flüsse in Netzwerken (Ford/Fulkerson/Dinic)
+- [ ] ~~Fraktionales Rucksackproblem~~ (Skript)
+- [ ] Horn Formeln
+- [ ] ~~Huffman-Coding~~ (Skript)
+- [ ] ~~Job Scheduling~~ (Skript)
+- [ ] Kartenfärbung
+- [ ] ~~Kruskal (minimal aufspannender Baum)~~
+- [ ] Marching algorithms
+- [ ] Min-Cut (Max-Flow)
+- [ ] Partition Problem (not optimal)
+- [ ] ~~Prim (minimal aufspannender Baum)~~
+- [ ] Set cover (not optimal)
+- [ ] Shortest common superstring
+- [ ] Springerproblem
+- [ ] ~~Wechselgeld~~
