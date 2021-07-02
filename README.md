@@ -367,3 +367,49 @@ Fall 1 --> T(n) = Θ(n)
 - [ ] Shortest common superstring
 - [ ] Springerproblem
 - [ ] ~~Wechselgeld~~
+
+## Dynamisches Programm
+- [ ] ~~0-1-Rucksackproblem~~ (Skript)
+- [ ] Ähnliche Summe
+- [ ] ~~Alle kürzesten Wege (Floyd)~~ (Skript)
+- [ ] Approximation von Pi mit n-gon
+- [ ] Binomialkoeffizienten
+- [ ] Catalan-Zahlen
+- [ ] Context free language recognition
+- [ ] deBoor
+- [ ] deCasteljau
+- [ ] ~~Editierabstand~~ (Skript)
+- [ ] Fibonacci-Zahlen
+- [ ] Independent sets in trees
+- [ ] Kettenmultiplikation von Matrizen
+- [ ] Kürzester Weg eines Springers
+- [ ] Längste aufsteigende Teilfolge
+- [ ] Längste gemeinsame Teilfolge
+- [ ] Minimale Triangulierung eines konvexen Vielecks
+- [ ] Minimum weight triangulation of simple polygon (MWT)
+- [ ] Neville-Aitken-Verfahren
+- [ ] Newton-Interpolation
+- [ ] Optimale binäre Suchbäume
+- [ ] Partition problem of list
+- [ ] Rekursion
+- [ ] Sebset-sum
+- [ ] Summe von Produkten
+- [ ] Zahlen-Dreieck
+
+## Backtracking
+- [ ] Aufsteigende Türme auf den ersten m Reihen
+- [ ] Binpacking
+- [ ] Damenproblem
+- [ ] Färben von Graphen
+- [ ] Hamiltonian cycle
+- [ ] Hamiltonian path
+- [ ] Labyrinth
+- [ ] Partitionierung einer natürlichen Zahl
+- [ ] Springerproblem
+- [ ] Subset Sum
+- [ ] Sudoku
+- [ ] Testmusterkompaktierung
+- [ ] Traveling sales man
+- [ ] Türme auf den ersten m Reihen
+- [ ] Türmeproblem
+- [ ] Turnpike reconstruction
