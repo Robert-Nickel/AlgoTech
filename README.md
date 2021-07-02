@@ -65,7 +65,7 @@ Fall 1 --> T(n) = Θ(n)
 ```
 def get_binary(zahl) {
         // Base
-		if (zahl == 0 || zahl == 1) {
+	if (zahl == 0 || zahl == 1) {
             return String(zahl)
         }
 		
@@ -172,8 +172,8 @@ def median_of_medians(N) {
     // Base
     if (N.length <= 5) {
         N.sort()
-        final_median_index = N.length / 2
-        final_median = N[final_median_index]
+        final_mediandex = N.length / 2
+        final_median = N[final_mediandex]
         return final_median
     }
     
@@ -192,8 +192,8 @@ def median_of_medians(N) {
     all_medians = []
     for (j = 0; j < all_sublists.length; j++) {
         all_sublists[j].sort()
-        median_index = all_sublists[j].length/2
-        all_medians.append(all_sublists[j][median_index])
+        mediandex = all_sublists[j].length/2
+        all_medians.append(all_sublists[j][mediandex])
     }
     median_of_medians(all_medians)
 }
