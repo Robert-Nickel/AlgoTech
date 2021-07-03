@@ -390,7 +390,7 @@ Fall 1 --> T(n) = Θ(n)
 - [ ] Partition Problem (not optimal)
 - [ ] ~~Prim (minimal aufspannender Baum)~~
 - [ ] Set cover (not optimal)
-- [ ] Shortest common superstring (R)
+- [x] [Shortest common superstring](#Shortest-common-superstring)
 - [ ] Springerproblem (M)
 - [ ] ~~Wechselgeld~~
 
@@ -412,6 +412,29 @@ def map_col(N[][]) {
     }
 }
 ```
+
+### Shortest common superstring
+```
+def shortest_common_superstring(S) {
+    superstring = ""
+    S.sortDescendingByLength()
+
+    for (i = 0; i < S.length; i++) {
+        string = S[i]
+        
+        if(!superstring.contains(string)) {
+            superstring += string
+        }
+    }
+    return superstring;
+}
+```
+Laufzeitanalyse:
+```
+O(n), falls die contains() Methode konstante Laufzeit hat
+```
+
+Dieser Algorithmus ist u.U. weit vom Optimum entfernt (aber funktioniert).
 
 ## Dynamisches Programm
 - [ ] ~~0-1-Rucksackproblem~~ (Skript)
