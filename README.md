@@ -380,18 +380,18 @@ Fall 1 --> T(n) = Θ(n)
 - [ ] ~~Dijkstra~~ (Skript)
 - [ ] Flüsse in Netzwerken (Ford/Fulkerson/Dinic)
 - [ ] ~~Fraktionales Rucksackproblem~~ (Skript)
-- [ ] Horn Formeln
+- [ ] Horn Formeln (M)
 - [ ] ~~Huffman-Coding~~ (Skript)
 - [ ] ~~Job Scheduling~~ (Skript)
-- [ ] [Kartenfärbung](#Kartenfärbung)
+- [x] [Kartenfärbung](#Kartenfärbung)
 - [ ] ~~Kruskal (minimal aufspannender Baum)~~
-- [ ] Marching algorithms
-- [ ] Min-Cut (Max-Flow)
+- [ ] Marching algorithms (R)
+- [ ] Min-Cut (Max-Flow) (M)
 - [ ] Partition Problem (not optimal)
 - [ ] ~~Prim (minimal aufspannender Baum)~~
 - [ ] Set cover (not optimal)
-- [ ] Shortest common superstring
-- [ ] Springerproblem
+- [ ] Shortest common superstring (R)
+- [ ] Springerproblem (M)
 - [ ] ~~Wechselgeld~~
 
 ### Kartenfärbung
@@ -399,16 +399,16 @@ Fall 1 --> T(n) = Θ(n)
 def map_col(N[][]) {
     number_of_countries = N[0].length
     result = [number_of_countries]
+
+    // iterate all countries
     for(i = 0; i < number_of_countries; i++) {
-        color = 0;
+        
+        // iterate all neighbours of the country i
         for (j = 0; j < number_of_countries; j++) {
-            if(i != j && N[i][j] == 1) {
-                if(color == result[j]) {
-                    color++
-                }
+            if(i != j && N[i][j] == 1) { 
+                result[i] = // pick a color, that none of the neighbors has
             }
         }
-        result[i] = color
     }
 }
 ```
