@@ -31,7 +31,7 @@
 - [ ] Skyline
 - [ ] ~~Strassen (Matrix-Multiplikation)~~ (Skript)
 - [x] [Summe der Beträge (nicht-negativen)](#Summe-der-Beträge)
-- [ ] Summe der Einträge
+- [x] [Summe der Einträge](#Summe-der-Einträge)
 - [ ] Viterbi
 
 ### Anzahl der nicht-negativen
@@ -330,8 +330,34 @@ def sum_abs(N, left, right) {
     
     // Divide
     center = (left + right) / 2;
-    left_sum = count_none_negative(N, left, center);
-    right_sum = count_none_negative(N, center + 1, right);
+    left_sum = sum_abs(N, left, center);
+    right_sum = sum_abs(N, center + 1, right);
+    
+    // Conquer
+    return left_sum + right_sum;
+}
+```
+Laufzeitanalyse:
+```
+a = 2
+b = 2
+𝛼 = 1
+f(n) = O(1)
+Fall 1 --> T(n) = Θ(n)
+```
+
+### Summe der Einträge
+```
+def sum_total(N, left, right) {    
+    // Base
+    if (left >= right) {
+        return N[left];
+    }
+    
+    // Divide
+    center = (left + right) / 2;
+    left_sum = sum_total(N, left, center);
+    right_sum = sum_total(N, center + 1, right);
     
     // Conquer
     return left_sum + right_sum;
@@ -357,7 +383,7 @@ Fall 1 --> T(n) = Θ(n)
 - [ ] Horn Formeln
 - [ ] ~~Huffman-Coding~~ (Skript)
 - [ ] ~~Job Scheduling~~ (Skript)
-- [ ] Kartenfärbung
+- [ ] [Kartenfärbung](#Kartenfärbung)
 - [ ] ~~Kruskal (minimal aufspannender Baum)~~
 - [ ] Marching algorithms
 - [ ] Min-Cut (Max-Flow)
@@ -367,6 +393,25 @@ Fall 1 --> T(n) = Θ(n)
 - [ ] Shortest common superstring
 - [ ] Springerproblem
 - [ ] ~~Wechselgeld~~
+
+### Kartenfärbung
+```
+def map_col(N[][]) {
+    number_of_countries = N[0].length
+    result = [number_of_countries]
+    for(i = 0; i < number_of_countries; i++) {
+        color = 0;
+        for (j = 0; j < number_of_countries; j++) {
+            if(i != j && N[i][j] == 1) {
+                if(color == result[j]) {
+                    color++
+                }
+            }
+        }
+        result[i] = color
+    }
+}
+```
 
 ## Dynamisches Programm
 - [ ] ~~0-1-Rucksackproblem~~ (Skript)
