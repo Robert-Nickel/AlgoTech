@@ -374,7 +374,7 @@ Fall 1 --> T(n) = Θ(n)
 - [ ] ~~Alle kürzesten Wege (Floyd)~~ (Skript)
 - [ ] Approximation von Pi mit n-gon
 - [ ] ~~Binomialkoeffizienten~~
-- [ ] Catalan-Zahlen
+- [x] [Catalan-Zahlen](#Catalan-Zahlen)
 - [ ] Context free language recognition
 - [ ] deBoor
 - [ ] deCasteljau
@@ -384,7 +384,7 @@ Fall 1 --> T(n) = Θ(n)
 - [ ] ~~Kettenmultiplikation von Matrizen~~
 - [ ] Kürzester Weg eines Springers
 - [ ] Längste aufsteigende Teilfolge
-- [ ] Längste gemeinsame Teilfolge
+- [x] [Längste gemeinsame Teilfolge](#Längste-gemeinsame-Teilfolge)
 - [ ] Minimale Triangulierung eines konvexen Vielecks
 - [ ] Minimum weight triangulation of simple polygon (MWT)
 - [ ] Neville-Aitken-Verfahren
@@ -395,6 +395,89 @@ Fall 1 --> T(n) = Θ(n)
 - [ ] Sebset-sum
 - [ ] Summe von Produkten
 - [ ] Zahlen-Dreieck
+
+### Catalan-Zahlen
+```
+def catalan(n) {
+    if (n == 0 || n == 1) {
+        return 1
+    }
+ 
+    // Table to store results of subproblems
+    res = [n+1]
+ 
+    // Initialize first two values in table
+    res[0] = 1
+    res[1] = 1
+ 
+    // Fill entries in res[] using recursive formula
+    for(i = 2, i <= n, i++):
+        for(j = 0; j < i; j++):
+            res[i] += res[j] * res[i-j-1]
+ 
+    return res[n]
+}
+```
+
+Laufzeitanalyse:
+```
+2 Schleifen ineinander, jeweils n Wiederholung => O(n^2)
+```
+
+Formel für Catalan Zahlen steht im Skript!
+
+Rekursiv (nur als Referenz, schlechte Laufzeit)
+```
+def catalan(n) {
+    if (n <= 1) {
+        return 1
+    }
+    res = 0
+    for(int i = 0; i < n; i++) {
+        res += catalan(i) * catalan(n-i-1)
+    }
+    return res
+}
+```
+
+### Längste gemeinsame Teilfolge
+```
+def lcs(X, Y, m, n):
+    // declaring the matrix for storing the values
+    L = [m + 1][n + 1]
+
+    // iterate over each cell
+    for(i = 0; i < m + 1; i++) {
+        for(j = 0; j < n + 1; j++) {
+            
+            // initialize first column and row with zeros
+            if (i == 0 || j == 0) {
+                L[i][j] = 0
+            } else if (X[i-1] == Y[j-1]) {
+                // chars are equal -> take top-left and increase by 1
+                L[i][j] = L[i-1][j-1] + 1
+            } else {
+                // chars are unequal -> take max of top and left
+                L[i][j] = max(L[i-1][j], L[i][j-1])
+            } 
+        }    
+    }
+            
+    // L[m][n] contains the length of LCS of X[0..n-1] & Y[0..m-1]
+    return L[m][n]
+```
+
+Rekursiv (nur als Referenz, schlechte Laufzeit)
+```
+def lcs(X, Y, m, n):
+    if (m == 0 || n == 0) {
+       return 0
+    } else if (X[m-1] == Y[n-1]) {
+        return 1 + lcs(X, Y, m-1, n-1)
+    } else {
+        return max(lcs(X, Y, m, n-1), lcs(X, Y, m-1, n))
+    }
+```
 
 ## Backtracking
 - [ ] Aufsteigende Türme auf den ersten m Reihen
