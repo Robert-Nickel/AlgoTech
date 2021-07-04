@@ -385,7 +385,7 @@ Fall 1 --> T(n) = Θ(n)
 - [ ] ~~Job Scheduling~~ (Skript)
 - [x] [Kartenfärbung](#Kartenfärbung)
 - [ ] ~~Kruskal (minimal aufspannender Baum)~~
-- [ ] Marching algorithms (R)
+- [x] [Marching algorithms](#Marching-algorithms)
 - [ ] Min-Cut (Max-Flow) (M)
 - [ ] Partition Problem (not optimal)
 - [ ] ~~Prim (minimal aufspannender Baum)~~
@@ -408,6 +408,32 @@ def map_col(N[][]) {
             if(i != j && N[i][j] == 1) { 
                 result[i] = // pick a color, that none of the neighbors has
             }
+        }
+    }
+}
+```
+
+### Marching
+```
+def march(landscape, location, step_size, error_tolerance) {
+    if(location + step_size <= error_tolerance) {
+        return location
+    }
+
+    option_a = location - grid_size
+    option_b = location + grid_size
+
+    if(option_a.height > option_b.height) {
+        if(option_a.height > location) {
+            march(landscape, option_a, step_size)
+        } else {
+            march(landscape, location, step_size/2)
+        }
+    } else {
+        if(option_b.height > location) {
+            march(landscape, option_b, step_size)
+        } else {
+            march(landscape, location, step_size/2)
         }
     }
 }
