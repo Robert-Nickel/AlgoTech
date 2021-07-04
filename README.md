@@ -387,7 +387,7 @@ Fall 1 --> T(n) = Θ(n)
 - [ ] ~~Kruskal (minimal aufspannender Baum)~~
 - [x] [Marching algorithms](#Marching-algorithms)
 - [ ] Min-Cut (Max-Flow) (M)
-- [ ] Partition Problem (not optimal)
+- [x] [Partition Problem](#Partition-problem)
 - [ ] ~~Prim (minimal aufspannender Baum)~~
 - [ ] Set cover (not optimal)
 - [x] [Shortest common superstring](#Shortest-common-superstring)
@@ -434,6 +434,31 @@ def march(landscape, location, step_size, error_tolerance) {
             march(landscape, option_b, step_size)
         } else {
             march(landscape, location, step_size/2)
+        }
+    }
+}
+```
+
+### Partition Problem
+```
+def partition(numbers) {
+    numbers.sortDescending()
+    p1 = [l[0]]
+    p2 = []
+    
+    for(i = 1; i < numbers.length; i++) {
+        p1_total = 0;
+        for(ip1 = 0; ip1 < p1.length; ip1++) {
+            p1_total += ip1
+        }
+        p2_total = 0;
+        for(ip2 = 0; ip2 < p2.length; ip2++) {
+            p2_total += ip2
+        }
+        if(p1_total < p2_total) {
+            p1.add(i)
+        } else {
+            p2.add(i)
         }
     }
 }
