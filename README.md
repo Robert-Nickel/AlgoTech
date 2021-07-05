@@ -389,7 +389,7 @@ Fall 1 --> T(n) = Θ(n)
 - [ ] Min-Cut (Max-Flow) (M)
 - [x] [Partition Problem](#Partition-problem)
 - [ ] ~~Prim (minimal aufspannender Baum)~~
-- [ ] Set cover (not optimal)
+- [ ] Set cover
 - [x] [Shortest common superstring](#Shortest-common-superstring)
 - [ ] Springerproblem (M)
 - [ ] ~~Wechselgeld~~
