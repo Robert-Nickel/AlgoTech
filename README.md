@@ -1,7 +1,5 @@
 # AlgoTech
-
 ## Teile und Herrsche
-
 - [x] [Anzahl der nicht-negativen](#Anzahl-der-nicht-negativen)
 - [ ] Anzahl von Vertauschungen in einer „unsortierten“ Liste
 - [x] [Binärdarstellung](#Binärdarstellung)
@@ -18,7 +16,7 @@
 - [ ] k-t größtes Element (selection problem)
 - [x] [Maximale-konsekutive Teilfolge](#Maximale-konsekutive-Teilfolge)
 - [x] [Maximum](#Maximum)
-- [ ] Max-Suche in unimodaler Liste
+- [x] [Max-Suche in unimodaler Liste](#Max-Unimodal)
 - [x] [Median](#Median)
 - [ ] ~~Merge-Sort~~ (Skript)
 - [x] [MinMax-Finding](#MinMax-Finding)
@@ -33,6 +31,76 @@
 - [x] [Summe der Beträge (nicht-negativen)](#Summe-der-Beträge)
 - [x] [Summe der Einträge](#Summe-der-Einträge)
 - [ ] Viterbi
+
+## Greedy
+- [ ] A*-Algorithmus
+- [ ] Approximate bin packing
+- [ ] Clustering (based on MST)
+- [ ] Delaunay via Lawson
+- [ ] ~~Dijkstra~~ (Skript)
+- [ ] Flüsse in Netzwerken (Ford/Fulkerson/Dinic)
+- [ ] ~~Fraktionales Rucksackproblem~~ (Skript)
+- [ ] Horn Formeln (M)
+- [ ] ~~Huffman-Coding~~ (Skript)
+- [ ] ~~Job Scheduling~~ (Skript)
+- [x] [Kartenfärbung](#Kartenfärbung)
+- [ ] ~~Kruskal (minimal aufspannender Baum)~~
+- [x] [Marching Grid Algorithm](#Marching-Grid-Algorithm)
+- [ ] Min-Cut (Max-Flow) (M)
+- [ ] [Partition Problem](#Partition-Problem)
+- [ ] ~~Prim (minimal aufspannender Baum)~~
+- [ ] Set cover (not optimal)
+- [x] [Shortest common superstring](#Shortest-common-superstring)
+- [ ] Springerproblem (M)
+- [ ] ~~Wechselgeld~~
+
+## Dynamisches Programm
+- [ ] ~~0-1-Rucksackproblem~~ (Skript)
+- [ ] Ähnliche Summe
+- [ ] ~~Alle kürzesten Wege (Floyd)~~ (Skript)
+- [ ] Approximation von Pi mit n-gon
+- [ ] ~~Binomialkoeffizienten~~
+- [x] [Catalan-Zahlen](#Catalan-Zahlen)
+- [ ] Context free language recognition
+- [ ] deBoor
+- [ ] deCasteljau
+- [ ] ~~Editierabstand~~ (Skript)
+- [ ] ~~Fibonacci-Zahlen~~ (Skript)
+- [ ] Independent sets in trees
+- [ ] ~~Kettenmultiplikation von Matrizen~~
+- [ ] Kürzester Weg eines Springers
+- [ ] Längste aufsteigende Teilfolge
+- [x] [Längste gemeinsame Teilfolge](#Längste-gemeinsame-Teilfolge)
+- [ ] Minimale Triangulierung eines konvexen Vielecks
+- [ ] Minimum weight triangulation of simple polygon (MWT)
+- [ ] Neville-Aitken-Verfahren
+- [ ] Newton-Interpolation
+- [ ] Optimale binäre Suchbäume
+- [ ] Partition problem of list
+- [ ] Rekursion
+- [ ] Sebset-sum
+- [ ] Summe von Produkten
+- [ ] Zahlen-Dreieck
+
+## Backtracking
+- [ ] Aufsteigende Türme auf den ersten m Reihen
+- [ ] Binpacking
+- [ ] ~~Damenproblem~~ (Skript)
+- [ ] ~~Färben von Graphen~~ (Skript)
+- [ ] Hamiltonian cycle
+- [ ] Hamiltonian path
+- [ ] Labyrinth
+- [ ] Partitionierung einer natürlichen Zahl
+- [ ] Springerproblem
+- [ ] Subset Sum
+- [ ] Sudoku
+- [ ] Testmusterkompaktierung
+- [ ] Traveling sales man
+- [ ] Türme auf den ersten m Reihen
+- [ ] Türmeproblem
+- [ ] Turnpike reconstruction
+
+## Teile und Herrsche
 
 ### Anzahl der nicht-negativen
 ```
@@ -51,6 +119,7 @@ def count_none_negative(N, left, right) {
         return left_nn + right_nn
     }
 ```
+[non-negative](./code/divide_conquer/non-negative.cpp)
 
 Laufzeitanalyse:
 ```
@@ -76,6 +145,8 @@ def get_binary(zahl) {
 		return rest + String(zahl%2)
     }
 ```
+[binary_output.cpp](./code/divide_conquer/binary_output.cpp)
+
 Laufzeitanalyse:
 ```
 a = 1
@@ -101,6 +172,7 @@ def ggt(A, B) {
     return ggt(A % B , B)
 }
 ```
+[ggt.cpp](./code/divide_conquer/ggt.cpp)
 Laufzeitanalyse:
 ```
 a = 1
@@ -127,6 +199,7 @@ def ggt_multiple(N, left, right) {
     return ggt(left_ggt, right_ggt)
 }
 ```
+[ggtMultiple](./code/divide_conquer/ggt_multiple.cpp)
 Laufzeitanalyse:
 ```
 a = 2
@@ -157,6 +230,7 @@ def max(N, left, right) {
     }
 }
 ```
+[maximum](./code/divide_conquer/maximum.cpp)
 Laufzeitanalyse:
 ```
 a = 2
@@ -165,6 +239,28 @@ b = 2
 f(n) = O(1)
 Fall 1 --> O(n)
 ```
+
+### Max Unimodal
+> An array is called unimodal iff it can be split into an increasing sequence followed by decreasing sequence.
+```cpp
+int maxUnimodal(vector<int> arr, int idx1, int idx2) {
+    if(idx1 >= idx2) {
+        return arr.at(idx1);
+    }
+    int middle = (idx1 + idx2) / 2;
+    // because of unimodality step like binary search can be applied here ;)
+    if(arr.at(middle) < arr.at(middle + 1)) {
+        return maxUnimodal(arr, middle + 1, idx2);    
+    } else {
+        return maxUnimodal(arr, 0, middle);
+    }
+}
+```
+[max_unimodal](./code/divide_conquer/max_unimodal.cpp)
+
+Laufzeitanalyse:
+a = 1, b = 2, alpha = logb(a) = 0, f(n) = O(1) 
+=>  T(n) = O(log n)
 
 ### Median
 ```
@@ -227,6 +323,7 @@ def find_min_max(N, left, right) {
 
     return min_max;
 }
+[minmax](./code/divide_conquer/minmax.cpp)
 ```
 Laufzeitanalyse:
 ```
@@ -259,6 +356,7 @@ def power(base, exp) {
     return result;
 }
 ```
+- [potenzieren](./code/divide_conquer/potenzieren.cpp)
 Laufzeitanalyse:
 ```
 a = 2
@@ -306,13 +404,14 @@ def max_sequence(N, left, right) {
     }
 }
 ```
+[max_konsekutive_teilfolge](./code/divide_conquer/max_konsekutive_teilfolge.cpp)
 Laufzeitanalyse:
 ```
 a = 2
 b = 2
 𝛼 = 1
 f(n) = O(n)
-Fall 2a0 --> Θ(log 𝑛)
+Fall 2a0 --> Θ(n*log 𝑛)
 ```
 
 ### Summe der Beträge
@@ -337,6 +436,7 @@ def sum_abs(N, left, right) {
     return left_sum + right_sum;
 }
 ```
+- [sum_betraege](./code/divide_conquer/sum_betraege.cpp)
 Laufzeitanalyse:
 ```
 a = 2
@@ -363,6 +463,7 @@ def sum_total(N, left, right) {
     return left_sum + right_sum;
 }
 ```
+[sum_eintraege.cpp](./code/divide_conquer/sum_eintraege.cpp)
 Laufzeitanalyse:
 ```
 a = 2
@@ -373,147 +474,74 @@ Fall 1 --> T(n) = Θ(n)
 ```
 
 ## Greedy
-- [ ] A*-Algorithmus
-- [ ] Approximate bin packing
-- [ ] Clustering (based on MST)
-- [ ] Delaunay via Lawson
-- [ ] ~~Dijkstra~~ (Skript)
-- [ ] Flüsse in Netzwerken (Ford/Fulkerson/Dinic)
-- [ ] ~~Fraktionales Rucksackproblem~~ (Skript)
-- [ ] Horn Formeln (M)
-- [ ] ~~Huffman-Coding~~ (Skript)
-- [ ] ~~Job Scheduling~~ (Skript)
-- [x] [Kartenfärbung](#Kartenfärbung)
-- [ ] ~~Kruskal (minimal aufspannender Baum)~~
-- [x] [Marching algorithms](#Marching-algorithms)
-- [ ] Min-Cut (Max-Flow) (M)
-- [x] [Partition Problem](#Partition-problem)
-- [ ] ~~Prim (minimal aufspannender Baum)~~
-- [ ] Set cover
-- [x] [Shortest common superstring](#Shortest-common-superstring)
-- [ ] Springerproblem (M)
-- [ ] ~~Wechselgeld~~
 
 ### Kartenfärbung
 ```
-def map_col(N[][]) {
-    number_of_countries = N[0].length
-    result = [number_of_countries]
+1. Färbe ersten Knoten des Graphes mit erster Farbe
+2. Für die restlichen Knoten (Knoten - 1 ):
+  a) Schaue den aktuellen ausgewählten Knoten an und Färbe ihn mit einer Farbe die zuvor noch nicht für einen benachbarten Knoten benutzt worden ist.
+  b) Falls alle Farben zuvor benutzt worden sind (für benachbarte Knoten), gebe dem Knoten eine neue Farbe
+```
+Laufzeitanalyse: 
+O(Anzahl Knoten^2 + Anzahl Kanten).
 
-    // iterate all countries
-    for(i = 0; i < number_of_countries; i++) {
-        
-        // iterate all neighbours of the country i
-        for (j = 0; j < number_of_countries; j++) {
-            if(i != j && N[i][j] == 1) { 
-                result[i] = // pick a color, that none of the neighbors has
-            }
-        }
-    }
-}
+### Marching Grid Algorithm
+https://www.youtube.com/watch?v=CqhCHE5s13k
+```
+0. Schlussbedingung festlegen (maximale Ungenauigkeit) definieren
+1. Fange bei beliebigen Punkt an
+2. Zeichne ein 3x3 Grid wo der Punkt in der Mitte ist
+3. Berechne für jeden Punkt den Wert 
+4. Falls der Wert sich dem gesuchten Wert annähert (z.B. Maximum) gehe zu dem Punkt 
+   - Wiederhole Schritt 2 - 4 solange bis bei Schlussbedingung angekommen
+
+Optional: Man kann Gridsize verkleinern um Genauigkeit zu erhöhen.
 ```
 
-### Marching
-```
-def march(landscape, location, step_size, error_tolerance) {
-    if(location + step_size <= error_tolerance) {
-        return location
-    }
-
-    option_a = location - grid_size
-    option_b = location + grid_size
-
-    if(option_a.height > option_b.height) {
-        if(option_a.height > location) {
-            march(landscape, option_a, step_size)
-        } else {
-            march(landscape, location, step_size/2)
-        }
-    } else {
-        if(option_b.height > location) {
-            march(landscape, option_b, step_size)
-        } else {
-            march(landscape, location, step_size/2)
-        }
-    }
-}
-```
-
-### Partition Problem
-```
-def partition(numbers) {
-    numbers.sortDescending()
-    p1 = [l[0]]
-    p2 = []
-    
-    for(i = 1; i < numbers.length; i++) {
-        p1_total = 0;
-        for(ip1 = 0; ip1 < p1.length; ip1++) {
-            p1_total += ip1
-        }
-        p2_total = 0;
-        for(ip2 = 0; ip2 < p2.length; ip2++) {
-            p2_total += ip2
-        }
-        if(p1_total < p2_total) {
-            p1.add(i)
-        } else {
-            p2.add(i)
-        }
-    }
-}
-```
 
 ### Shortest common superstring
+https://www.youtube.com/watch?v=aGpMH5l3mrI
 ```
-def shortest_common_superstring(S) {
-    superstring = ""
-    S.sortDescendingByLength()
+Erstelle Array mit gegebenen Strings
+Erstelle Hilfs-Array von Strings (temp) und kopiere Inhalte von gegebenen Strings
 
-    for (i = 0; i < S.length; i++) {
-        string = S[i]
-        
-        if(!superstring.contains(string)) {
-            superstring += string
-        }
-    }
-    return superstring;
-}
+Solange temp mehr als 1 String hat:
+  Finde laengsten überschneidendes String-Paar (a, b)
+  Kombiniere das Paar zu einem String, entferne a und b aus Array
+
+Falls temp länge == 1 => gebe den String zurück
 ```
 Laufzeitanalyse:
 ```
 O(n), falls die contains() Methode konstante Laufzeit hat
 ```
 
-Dieser Algorithmus ist u.U. weit vom Optimum entfernt (aber funktioniert).
+### Partition Problem 
+> Gegeben ein positive Menge von Zahlen z.B. `A = {4, 4, 8}`, kann es in zwei Mengen aufgeteilt werden, sodass die Summe der Elemente in beiden Mengen gleich ist? `B = {4, 4},  C = {8}`
 
-## Dynamisches Programm
-- [ ] ~~0-1-Rucksackproblem~~ (Skript)
-- [ ] Ähnliche Summe
-- [ ] ~~Alle kürzesten Wege (Floyd)~~ (Skript)
-- [ ] Approximation von Pi mit n-gon
-- [ ] ~~Binomialkoeffizienten~~
-- [x] [Catalan-Zahlen](#Catalan-Zahlen)
-- [ ] Context free language recognition
-- [ ] deBoor
-- [ ] deCasteljau
-- [ ] ~~Editierabstand~~ (Skript)
-- [ ] ~~Fibonacci-Zahlen~~ (Skript)
-- [ ] Independent sets in trees
-- [ ] ~~Kettenmultiplikation von Matrizen~~
-- [ ] Kürzester Weg eines Springers
-- [ ] Längste aufsteigende Teilfolge
-- [x] [Längste gemeinsame Teilfolge](#Längste-gemeinsame-Teilfolge)
-- [ ] Minimale Triangulierung eines konvexen Vielecks
-- [ ] Minimum weight triangulation of simple polygon (MWT)
-- [ ] Neville-Aitken-Verfahren
-- [ ] Newton-Interpolation
-- [ ] Optimale binäre Suchbäume
-- [ ] Partition problem of list
-- [ ] Rekursion
-- [ ] Sebset-sum
-- [ ] Summe von Produkten
-- [ ] Zahlen-Dreieck
+```python
+def partition(numbers):
+    A = []
+    B = []
+    sum_A = 0
+    sum_B = 0
+    for n in sorted(numbers, reverse=True):
+        if sum_A < sum_B:
+           A.append(n)
+           sum_A = sum_A + n
+        else:
+           B.append(n)
+           sum_B = sum_B + n
+    return (A, B)
+```
+- [partition.py](./code/greedy/partition.py)
+
+Laufzeitanalyse: 
+- Falls unsortierte Liste O(n)
+- sortierte Liste O(n * log n)
+- Falls Nummern gleichverteilt 1 + O(log log n/n)
+
+## Dynamisches Programmieren
 
 ### Catalan-Zahlen
 ```
@@ -597,21 +625,3 @@ def lcs(X, Y, m, n):
         return max(lcs(X, Y, m, n-1), lcs(X, Y, m-1, n))
     }
 ```
-
-## Backtracking
-- [ ] Aufsteigende Türme auf den ersten m Reihen
-- [ ] Binpacking
-- [ ] ~~Damenproblem~~ (Skript)
-- [ ] ~~Färben von Graphen~~ (Skript)
-- [ ] Hamiltonian cycle
-- [ ] Hamiltonian path
-- [ ] Labyrinth
-- [ ] Partitionierung einer natürlichen Zahl
-- [ ] Springerproblem
-- [ ] Subset Sum
-- [ ] Sudoku
-- [ ] Testmusterkompaktierung
-- [ ] Traveling sales man
-- [ ] Türme auf den ersten m Reihen
-- [ ] Türmeproblem
-- [ ] Turnpike reconstruction
