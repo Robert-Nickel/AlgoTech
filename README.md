@@ -501,13 +501,21 @@ Optional: Man kann Gridsize verkleinern um Genauigkeit zu erhöhen.
 
 ### Shortest common superstring
 https://www.youtube.com/watch?v=aGpMH5l3mrI
+
+> Given a Set of Input Reads look for shortest superstring. A superstring contains all the input strings as substrings
+
+E.g:
+- AAA A*AB* A*BA* *A*BB *B*AA *B*AB BBA BBB 
+- AAA B     A     BB    AA    AB    BBA BBB
+
+
 ```
 Erstelle Array mit gegebenen Strings
 Erstelle Hilfs-Array von Strings (temp) und kopiere Inhalte von gegebenen Strings
 
 Solange temp mehr als 1 String hat:
   Finde laengsten überschneidendes String-Paar (a, b)
-  Kombiniere das Paar zu einem String, entferne a und b aus Array
+  Kombiniere das Paar zu einem String
 
 Falls temp länge == 1 => gebe den String zurück
 ```
