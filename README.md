@@ -391,7 +391,7 @@ Fall 1 --> T(n) = Θ(n)
 - [ ] ~~Prim (minimal aufspannender Baum)~~
 - [ ] Set cover
 - [x] [Shortest common superstring](#Shortest-common-superstring)
-- [ ] Springerproblem (M)
+- [x] Springerproblem 
 - [ ] ~~Wechselgeld~~
 
 ### Kartenfärbung
