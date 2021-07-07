@@ -487,6 +487,31 @@ O(n), falls die contains() Methode konstante Laufzeit hat
 
 Dieser Algorithmus ist u.U. weit vom Optimum entfernt (aber funktioniert).
 
+### Jumper Problem (kein Schachfeld)
+```
+def jump(N) {
+    jump = 0
+    nextJumpPosition = 0
+    i = 0
+    while (i < N.length -1) {
+        farthest = i + N[i]
+        if (farthest >= N.length -1){
+            return jump++
+        }
+        start = i + 1
+        end = i + N[i]
+        for (let j = start; j <= end; j++){
+            if (j + N[j] >= farthest){
+                farthest = j + N[j]
+                nextJumpPosition = j
+            }
+        }
+        jump += 1
+        i = nextJumpPosition
+    }
+}
+```
+
 ## Dynamisches Programm
 - [ ] ~~0-1-Rucksackproblem~~ (Skript)
 - [ ] Ähnliche Summe
