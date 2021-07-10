@@ -3,7 +3,7 @@
 ## Teile und Herrsche
 
 - [x] [Anzahl der nicht-negativen](#Anzahl-der-nicht-negativen)
-- [ ] Anzahl von Vertauschungen in einer „unsortierten“ Liste
+- [x] [Anzahl von Vertauschungen in einer „unsortierten“ Liste]
 - [x] [Binärdarstellung](#Binärdarstellung)
 - [ ] ~~Binäre Suche~~ (Skript)
 - [ ] ~~Dichtestes Punktepaar~~ (Skript)
@@ -59,6 +59,47 @@ b = 2
 𝛼 = 1
 f(n) = O(1)
 Fall 1 --> T(n) = Θ(n)
+```
+
+### Anzahl von Vertauschungen in einer „unsortierten“ Liste
+```
+def MergeAndCount(A, li, m, re) {
+        int i, j, k, n
+        int aux[2]
+        for (i=m+1; i > li; i--){
+            aux[i-1] = a[i-1]
+        }
+        for (j=m; j<re; j++){
+             aux[re+m-j] = a[j+1]
+        }
+        n = 0
+        for (k=li, k<= re; k++) {
+            if (aux[j] < aux[i]){
+                a[k] = aux[j--]
+                if (i<=m){
+                    n+= m-i+1
+                }
+            }
+            else {
+                a[k] = aux[i++]
+            }
+        }
+    }
+
+    def NumberofInversions(X, li, re){
+        if (re<=li){
+            return 0
+        }
+        m = (li+re)/2
+        n1 = NumberofInversions(X, li, m)
+        n2 = NumberofInversions(X, m+1, re)
+        n3 = MergeAndCount (x, li, m, re)
+        return n1 + n2 + n3
+    }
+```
+
+Laufzeitanalyse:
+```
 ```
 
 ### Binärdarstellung
