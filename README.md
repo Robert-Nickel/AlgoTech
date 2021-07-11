@@ -1,7 +1,7 @@
 # AlgoTech
 
 ## O-Notations Mengenbeweise
-### o(f) ⊂ O(f)
+###  ⊂ O(f)
 ```
 g ∈ o(f)
 
@@ -12,7 +12,9 @@ g ∈ o(f)
 <=> g ∈ O(f)
 ```
 
-Tipp: Gleiches Prinzip für \omega ⊂ \Omega
+Tipps:
+- Gleiches Prinzip für \omega ⊂ \Omega
+- O(f) ⊂ o(f) zu beweisen, indem von Existenzquantor nicht auf Allquantor geschlossen werden kann
 
 ### \Theta(f) ⊂ O(f)
 ```
@@ -25,7 +27,9 @@ g ∈ \Theta(f)
 <=> g ∈ O(f)
 ```
 
-Tipp: Gleiches Prinzip für \Theta(f) ⊂ \Omega(f)
+Tipps:
+- Gleiches Prinzip für \Theta(f) ⊂ \Omega(f)
+- O(f) ⊂ \Theta(f) zu beweisen, indem weitere Bedingung (z.B. c2) nicht einfach hinzugefügt werden kann
 
 ## Teile und Herrsche
 
