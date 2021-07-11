@@ -446,7 +446,7 @@ Fall 1 --> T(n) = Θ(n)
 
 ## Greedy
 - [ ] A*-Algorithmus
-- [ ] Approximate bin packing
+- [ ] [Approximate bin packing](#Approximate-bin-packing)
 - [ ] Clustering (based on MST)
 - [ ] Delaunay via Lawson
 - [ ] ~~Dijkstra~~ (Skript)
@@ -457,7 +457,7 @@ Fall 1 --> T(n) = Θ(n)
 - [ ] ~~Job Scheduling~~ (Skript)
 - [x] [Kartenfärbung](#Kartenfärbung)
 - [ ] ~~Kruskal (minimal aufspannender Baum)~~
-- [x] [Marching algorithms](#Marching-algorithms)
+- [x] [Marching algorithms](#Marching)
 - [ ] Min-Cut (Max-Flow) (M)
 - [x] [Partition Problem](#Partition-problem)
 - [ ] ~~Prim (minimal aufspannender Baum)~~
@@ -465,6 +465,18 @@ Fall 1 --> T(n) = Θ(n)
 - [x] [Shortest common superstring](#Shortest-common-superstring)
 - [x] Springerproblem 
 - [ ] ~~Wechselgeld~~
+
+### Approximate bin packing
+```
+k = Anzahl an Behältnissen (Obergrenze)
+u = maximale Gewicht aller Behältnisse (immer gleich)
+[n1,n2,n3] = Einzelgewichte der Gegenstände
+
+1. Sortiere die Objekte nach absteigendem Gewicht
+2. Füge die Objekte der Reihe nach ein, sodass jedes in den ersten Behälter gegeben wird, in dem noch genug Platz ist.
+3. Falls in keinem der bereits geöffneten Behälter genügend Platz ist, öffne einen neuen.
+4. Falls die Anzahl an Behälnissen kleiner oder gleich k ist, dann passt es. Sonst nicht.
+```
 
 ### Kartenfärbung
 ```
@@ -487,13 +499,13 @@ def map_col(N[][]) {
 
 ### Marching
 ```
-def march(landscape, location, step_size, error_tolerance) {
-    if(location + step_size <= error_tolerance) {
+def march(landscape, location, step_size, error_tolerance = 3) {
+    if(step_size < error_tolerance) {
         return location
     }
 
-    option_a = location - grid_size
-    option_b = location + grid_size
+    option_a = location - step_size
+    option_b = location + step_size
 
     if(option_a.height > option_b.height) {
         if(option_a.height > location) {
@@ -606,9 +618,9 @@ def jump(N) {
 - [ ] Neville-Aitken-Verfahren
 - [ ] Newton-Interpolation
 - [ ] Optimale binäre Suchbäume
-- [ ] Partition problem of list
+- [x] [Partition problem](#partition-problem)
 - [ ] Rekursion
-- [ ] Sebset-sum
+- [x] [Subset-sum](#subset-sum)
 - [ ] Summe von Produkten
 - [ ] Zahlen-Dreieck
 
@@ -695,9 +707,32 @@ def lcs(X, Y, m, n):
     }
 ```
 
+### Partition problem
+```
+1. Summe über alle Elemente berechnen
+2. Ist die Summe ungerade?
+    3. Ja, dann return false
+    4. Nein, dann rufe Subset sum(Summe/2) auf
+```
+Tipp: Das Partitionsproblem ist lässt sich auf das subset sum Problem reduzieren,
+da eine gleichmäßige Partitionierung immer erfolgreich ist, wenn die Hälfte der Summe aus den Elementen gebildet werden kann. Genau das prüft die subset sum.
+
+### Subset-sum
+```
+isSubsetSum(set, n, sum) = isSubsetSum(set, n-1, sum) || isSubsetSum(set, n-1, sum-set[n-1])
+
+Base Cases:
+isSubsetSum(set, n, sum) = false, if sum > 0 and n == 0
+isSubsetSum(set, n, sum) = true, if sum == 0 
+```
+
+![](https://i1.wp.com/algorithms.tutorialhorizon.com/files/2015/05/Subset-Sum-Problem.jpg)
+
+Rekursionsschritt von: https://www.geeksforgeeks.org/subset-sum-problem-dp-25/
+
 ## Backtracking
 - [ ] Aufsteigende Türme auf den ersten m Reihen
-- [ ] Binpacking
+- [x] [Binpacking](#Binpacking)
 - [ ] ~~Damenproblem~~ (Skript)
 - [ ] ~~Färben von Graphen~~ (Skript)
 - [ ] Hamiltonian cycle
@@ -710,5 +745,35 @@ def lcs(X, Y, m, n):
 - [ ] Testmusterkompaktierung
 - [ ] Traveling sales man
 - [ ] Türme auf den ersten m Reihen
-- [ ] Türmeproblem
+- [x] [Türmeproblem](#Türmeproblem)
 - [ ] Turnpike reconstruction
+
+### Binpacking
+```
+1. Gehe über alle Gegenstände G
+    2. Gehe über alle Eimer E
+        3. Passt G in E?
+            4. Wenn ja, tu es rein
+            5. Wenn nein
+                6. Steht noch ein Eimer, in den G hinein passt, zur Verfügung?
+                    7. Ja, dann tu es hinein
+                        8. Ist der Lösungsvektor vollständig?
+                            9. Wenn ja, gib das Ergebnis aus
+                    10. Nein, dann nimm den vorherigen Gegenstand wieder raus
+                        11. Dieser Gegenstand ist nun das neue G, fahre damit bei Schritt 2 fort
+
+```
+
+### Türmeproblem
+```
+1. Erzeuge Lösungsvektor mit [-1]
+2. Solange Lösungsvektor nicht leer ist, wiederhole:
+    3. Solange der folgende Vorschlag noch nicht valide ist:
+        4. Vorschlag: Rücke 1 nach rechts
+        5. Ist dieser Vorschlag valide?
+            6. Wenn ja, ist der Lösungsvektor vollständig?
+                7. Wenn ja, gib das Ergebnis aus (und/oder zähle die Anzahl der Lösungen)
+                8. Wenn nein, lösche den Vorschlag aus dem Lösungsvektor und verändere den vorherigen Vorschlag
+            9. Wenn nein, lösche den Vorschlag aus dem Lösungsvektor
+```
+Tipp: Gleiches Vorgehen wie beim Damenproblem, nur die Bedrohungsprüfung ist anders.
