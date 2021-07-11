@@ -1,9 +1,36 @@
 # AlgoTech
 
+## O-Notations Mengenbeweise
+### o(f) ⊂ O(f)
+```
+g ∈ o(f)
+
+\forall c > 0 \exists n_0 \forall n > n_0 : 0 < |g(n)| <= c * |f(n)|
+
+=> \exists c > 0 \exists n_0 \forall n > n_0 : 0 < |g(n)| <= c * |f(n)|
+
+<=> g ∈ O(f)
+```
+
+Tipp: Gleiches Prinzip für \omega ⊂ \Omega
+
+### \Theta(f) ⊂ O(f)
+```
+g ∈ \Theta(f)
+
+\exists c1, c2, n_0 \forall n >= n_0 : 0 <= c1 |g(n)| <= |f(n)| <= c2 |g(n)|
+
+=> \exists c1, n_0 \forall n >= n_0 : 0 <= |f(n)| <= c2 |g(n)|
+
+<=> g ∈ O(f)
+```
+
+Tipp: Gleiches Prinzip für \Theta(f) ⊂ \Omega(f)
+
 ## Teile und Herrsche
 
 - [x] [Anzahl der nicht-negativen](#Anzahl-der-nicht-negativen)
-- [x] [Anzahl von Vertauschungen in einer „unsortierten“ Liste]
+- [x] [Anzahl von Vertauschungen in einer unsortierten Liste](#Anzahl-von-Vertauschungen-in-einer-unsortierten-Liste)
 - [x] [Binärdarstellung](#Binärdarstellung)
 - [ ] ~~Binäre Suche~~ (Skript)
 - [ ] ~~Dichtestes Punktepaar~~ (Skript)
@@ -61,7 +88,7 @@ f(n) = O(1)
 Fall 1 --> T(n) = Θ(n)
 ```
 
-### Anzahl von Vertauschungen in einer „unsortierten“ Liste
+### Anzahl von Vertauschungen in einer unsortierten Liste
 ```
 def MergeAndCount(A, li, m, re) {
         int i, j, k, n
