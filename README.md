@@ -445,7 +445,7 @@ Fall 1 --> T(n) = Θ(n)
 ```
 
 ## Greedy
-- [ ] A*-Algorithmus
+- [x] [A*-Algorithmus](#A*-Algorithmus)
 - [ ] [Approximate bin packing](#Approximate-bin-packing)
 - [ ] Clustering (based on MST)
 - [ ] Delaunay via Lawson
@@ -465,6 +465,9 @@ Fall 1 --> T(n) = Θ(n)
 - [x] [Shortest common superstring](#Shortest-common-superstring)
 - [x] [Springerproblem kein Schachfeld](#Springerproblem-kein-Schachfeld)
 - [ ] ~~Wechselgeld~~
+
+### A*-Algorithmus
+![Gute Erklärung auf YouTube](https://www.youtube.com/watch?v=-L-WgKMFuhE)
 
 ### Approximate bin packing
 ```
