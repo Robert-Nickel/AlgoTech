@@ -463,7 +463,7 @@ Fall 1 --> T(n) = Θ(n)
 - [ ] ~~Prim (minimal aufspannender Baum)~~
 - [ ] Set cover
 - [x] [Shortest common superstring](#Shortest-common-superstring)
-- [x] Springerproblem 
+- [x] [Springerproblem kein Schachfeld](#Springerproblem-kein-Schachfeld)
 - [ ] ~~Wechselgeld~~
 
 ### Approximate bin packing
@@ -571,7 +571,7 @@ O(n), falls die contains() Methode konstante Laufzeit hat
 
 Dieser Algorithmus ist u.U. weit vom Optimum entfernt (aber funktioniert).
 
-### Jumper Problem (kein Schachfeld)
+### Springerproblem kein Schachfeld
 ```
 def jump(N) {
     jump = 0
@@ -739,7 +739,7 @@ Rekursionsschritt von: https://www.geeksforgeeks.org/subset-sum-problem-dp-25/
 - [ ] Hamiltonian path
 - [ ] Labyrinth
 - [ ] Partitionierung einer natürlichen Zahl
-- [ ] Springerproblem
+- [ ] [Springerproblem](#Springerproblem)
 - [ ] Subset Sum
 - [ ] Sudoku
 - [ ] Testmusterkompaktierung
@@ -762,6 +762,15 @@ Rekursionsschritt von: https://www.geeksforgeeks.org/subset-sum-problem-dp-25/
                     10. Nein, dann nimm den vorherigen Gegenstand wieder raus
                         11. Dieser Gegenstand ist nun das neue G, fahre damit bei Schritt 2 fort
 
+```
+
+### Springerproblem
+```
+Wenn alle Felder besucht wurden, gib das Ergebnis aus
+Probiere rekursiv (nach Tiefensuche) alle Möglichkeiten aus
+    Wenn die Möglichkeit nicht zur Lösung führt, gehe einen Schritt im Entscheidungsbaum zurück, und probiere eine der anderen Möglichkeiten
+    Wenn eine Möglichkeit nicht funktioniert, gib false zurück
+Wenn die letzte getestete Möglichkeit nicht funktioniert, gib 0 zurück
 ```
 
 ### Türmeproblem
