@@ -1,7 +1,7 @@
 # AlgoTech
 
 ## O-Notations Mengenbeweise
-###  ⊂ O(f)
+### o(f) ⊂ O(f)
 ```
 g ∈ o(f)
 
