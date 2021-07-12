@@ -338,7 +338,7 @@ a = 1
 b = 2
 𝛼 = 0
 f(n)= O(1)
-Fall 1 --> Θ(n)
+Fall 2a --> Θ(log n)
 ```
 
 ### k-t größtes Element
