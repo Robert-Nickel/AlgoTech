@@ -1,4 +1,9 @@
 # AlgoTech
+Das Ziel dieses Repositories ist die Klausurvorbereitung für Algorithmentechnik an der HTWG.
+
+Wer dazu beitragen möchte, möge den Kontakt suchen oder das Repo forken.
+
+Die Algorithmen, die im Skript stehen, sowie die, die wir für zu komplex für die Klausur halten, sind hier explizit nicht aufgenommen.
 
 ## O-Notations Mengenbeweise
 ### o(f) ⊂ O(f)
@@ -449,19 +454,19 @@ Fall 1 --> T(n) = Θ(n)
 
 ## Greedy
 - [x] [A*-Algorithmus](#A*-Algorithmus)
-- [ ] [Approximate bin packing](#Approximate-bin-packing)
+- [x] [Approximate bin packing](#Approximate-bin-packing)
 - [ ] Clustering (based on MST)
 - [ ] Delaunay via Lawson
 - [ ] ~~Dijkstra~~ (Skript)
-- [ ] Flüsse in Netzwerken (Ford/Fulkerson/Dinic)
+- [x] [Flüsse in Netzwerken (Ford/Fulkerson/Dinic)](#Flüsse-in-Netzwerken)
 - [ ] ~~Fraktionales Rucksackproblem~~ (Skript)
-- [ ] Horn Formeln (M)
+- [ ] Horn Formeln
 - [ ] ~~Huffman-Coding~~ (Skript)
 - [ ] ~~Job Scheduling~~ (Skript)
 - [x] [Kartenfärbung](#Kartenfärbung)
 - [ ] ~~Kruskal (minimal aufspannender Baum)~~
 - [x] [Marching algorithms](#Marching)
-- [ ] Min-Cut (Max-Flow) (M)
+- [x] [Min-Cut Max-Flow] (#Min-Cut-Max-Flow)
 - [x] [Partition Problem](#Partition-problem)
 - [ ] ~~Prim (minimal aufspannender Baum)~~
 - [ ] Set cover
@@ -483,6 +488,16 @@ u = maximale Gewicht aller Behältnisse (immer gleich)
 3. Falls in keinem der bereits geöffneten Behälter genügend Platz ist, öffne einen neuen.
 4. Falls die Anzahl an Behälnissen kleiner oder gleich k ist, dann passt es. Sonst nicht.
 ```
+
+### Flüsse in Netzwerken
+
+```
+1. total_flow = 0
+2. Für jeden Pfad von s nach t
+    3. addiere den Flow des Pfades zu total_flow
+4. Gib total_flow zurück
+```
+[GeeksforGeeks Artikel](https://www.geeksforgeeks.org/ford-fulkerson-algorithm-for-maximum-flow-problem/)
 
 ### Kartenfärbung
 ```
@@ -528,6 +543,9 @@ def march(landscape, location, step_size, error_tolerance = 3) {
     }
 }
 ```
+
+### Min-Cut Max-Flow
+Ähnlich oder gleich zu [Flüsse in Netzwerken](#Flüsse-in-Netzwerken)
 
 ### Partition Problem
 ```
@@ -745,7 +763,7 @@ Rekursionsschritt von: https://www.geeksforgeeks.org/subset-sum-problem-dp-25/
 - [ ] Hamiltonian path
 - [ ] Labyrinth
 - [ ] Partitionierung einer natürlichen Zahl
-- [ ] [Springerproblem](#Springerproblem)
+- [x] [Springerproblem](#Springerproblem)
 - [ ] Subset Sum
 - [ ] Sudoku
 - [ ] Testmusterkompaktierung
@@ -777,6 +795,16 @@ Probiere rekursiv (nach Tiefensuche) alle Möglichkeiten aus
     Wenn die Möglichkeit nicht zur Lösung führt, gehe einen Schritt im Entscheidungsbaum zurück, und probiere eine der anderen Möglichkeiten
     Wenn eine Möglichkeit nicht funktioniert, gib false zurück
 Wenn die letzte getestete Möglichkeit nicht funktioniert, gib 0 zurück
+```
+
+### Travelling Salesman
+```
+Probiere jeden möglichen Pfad aus und speichere das Minimum.
+```
+
+Laufzeitanalyse:
+```
+O(n!), da erst n viele Städte zur Auswahl stehen, dann n-1 viele, dann n-2 viele etc.
 ```
 
 ### Türmeproblem
