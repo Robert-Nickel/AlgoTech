@@ -347,7 +347,7 @@ Naiv: Liste mit MergeSort sortieren und dann das k(-1)-te Element nehmen. Laufze
 
 Eine Alternative ist QuickSelect. Das ist wie QuickSort, nur dass man aufhört, sobald das Pivot Element das k-te Element ist (da das Pivot Element immer direkt an die richtige Stelle gesetzt wird, und dann der Rest entsprechend partitioniert wird.
 
-![GeeksforGeeks Artikel](https://www.geeksforgeeks.org/kth-smallestlargest-element-unsorted-array/)
+[GeeksforGeeks Artikel](https://www.geeksforgeeks.org/kth-smallestlargest-element-unsorted-array/)
 
 ### Maximale-konsekutive Teilfolge
 ```
