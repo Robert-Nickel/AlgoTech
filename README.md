@@ -334,9 +334,9 @@ def power(base, exp) {
 ```
 Laufzeitanalyse:
 ```
-a = 2
-b=2
-𝛼 = 1
+a = 1
+b = 2
+𝛼 = 0
 f(n)= O(1)
 Fall 1 --> Θ(n)
 ```
