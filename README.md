@@ -129,10 +129,6 @@ def MergeAndCount(A, li, m, re) {
     }
 ```
 
-Laufzeitanalyse:
-```
-```
-
 ### Binärdarstellung
 ```
 def get_binary(zahl) {
