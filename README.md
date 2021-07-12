@@ -205,8 +205,9 @@ Laufzeitanalyse:
 a = 2
 b = 2
 𝛼 = 1
-f(n) = O(log n)
-Fall 1 --> O(n) (???)
+f(N) = O(log n) => (Hängt nicht von N ab und verhält sich daher wie O(1))
+Fall 2 --> O(N)
+=> Gesamtlaufzeit: O(N*log n)
 ```
 ### Maximum
 ```
