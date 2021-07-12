@@ -315,7 +315,7 @@ Fall 1 --> Θ(n)
 ```
 def power(base, exp) {
     //Base case
-    if (base == 0) {
+    if (exp == 0) {
         return 1;
     }
     if (exp == 1) {
