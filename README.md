@@ -14,7 +14,7 @@ g ∈ o(f)
 
 Tipps:
 - Gleiches Prinzip für \omega ⊂ \Omega
-- O(f) ⊂ o(f) zu beweisen, indem von Existenzquantor nicht auf Allquantor geschlossen werden kann
+- O(f) ⊂ o(f) zu widerlegen, indem von Existenzquantor nicht auf Allquantor geschlossen werden kann
 
 ### \Theta(f) ⊂ O(f)
 ```
@@ -29,7 +29,7 @@ g ∈ \Theta(f)
 
 Tipps:
 - Gleiches Prinzip für \Theta(f) ⊂ \Omega(f)
-- O(f) ⊂ \Theta(f) zu beweisen, indem weitere Bedingung (z.B. c2) nicht einfach hinzugefügt werden kann
+- O(f) ⊂ \Theta(f) zu widerlegen, indem weitere Bedingung (z.B. c2) nicht einfach hinzugefügt werden kann
 
 ## Teile und Herrsche
 
