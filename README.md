@@ -663,10 +663,11 @@ def catalan(n) {
     res[1] = 1
  
     // Fill entries in res[] using recursive formula
-    for(i = 2, i <= n, i++):
-        for(j = 0; j < i; j++):
+    for(i = 2, i <= n, i++) {
+        for(j = 0; j < i; j++) {
             res[i] += res[j] * res[i-j-1]
- 
+	}
+    }
     return res[n]
 }
 ```
