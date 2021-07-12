@@ -304,7 +304,7 @@ def find_min_max(N, left, right) {
 Laufzeitanalyse:
 ```
 a = 2
-b=2
+b = 2
 𝛼 = 1
 f(n)= O(1)
 Fall 1 --> Θ(n)
