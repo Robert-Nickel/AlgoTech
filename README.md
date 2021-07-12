@@ -205,8 +205,9 @@ Laufzeitanalyse:
 a = 2
 b = 2
 𝛼 = 1
-f(n) = O(log n)
-Fall 1 --> O(n) (???)
+f(N) = O(log n) => (Hängt nicht von N ab und verhält sich daher wie O(1))
+Fall 2 --> O(N)
+=> Gesamtlaufzeit: O(N*log n)
 ```
 ### Maximum
 ```
@@ -304,7 +305,7 @@ def find_min_max(N, left, right) {
 Laufzeitanalyse:
 ```
 a = 2
-b=2
+b = 2
 𝛼 = 1
 f(n)= O(1)
 Fall 1 --> Θ(n)
@@ -314,7 +315,7 @@ Fall 1 --> Θ(n)
 ```
 def power(base, exp) {
     //Base case
-    if (base == 0) {
+    if (exp == 0) {
         return 1;
     }
     if (exp == 1) {
@@ -334,11 +335,11 @@ def power(base, exp) {
 ```
 Laufzeitanalyse:
 ```
-a = 2
-b=2
-𝛼 = 1
+a = 1
+b = 2
+𝛼 = 0
 f(n)= O(1)
-Fall 1 --> Θ(n)
+Fall 2a --> Θ(log n)
 ```
 
 ### k-t größtes Element
@@ -663,10 +664,11 @@ def catalan(n) {
     res[1] = 1
  
     // Fill entries in res[] using recursive formula
-    for(i = 2, i <= n, i++):
-        for(j = 0; j < i; j++):
+    for(i = 2, i <= n, i++) {
+        for(j = 0; j < i; j++) {
             res[i] += res[j] * res[i-j-1]
- 
+	}
+    }
     return res[n]
 }
 ```
