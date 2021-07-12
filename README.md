@@ -70,7 +70,7 @@ Tipps:
 def count_none_negative(N, left, right) {
         // Base
         if (left >= right) {
-            return N[left] >= 0? 1 : 0
+            return N[left] >= 0 ? 1 : 0
         }
 
         // Divide
