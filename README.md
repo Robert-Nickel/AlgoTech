@@ -51,7 +51,7 @@ Tipps:
 - [ ] ~~Introsort (introspective Quicksort)~~ (Skript)
 - [ ] ~~Karatsuba (Langzahl-Multiplikation)~~ (Skript)
 - [ ] ~~Konvexe Hülle (via common tangents)~~ (Skript)
-- [ ] k-t größtes Element (selection problem)
+- [x] [k-t größtes Element](#k-t-größtes-element)
 - [x] [Maximale-konsekutive Teilfolge](#Maximale-konsekutive-Teilfolge)
 - [x] [Maximum](#Maximum)
 - [ ] Max-Suche in unimodaler Liste
@@ -765,9 +765,9 @@ Rekursionsschritt von: https://www.geeksforgeeks.org/subset-sum-problem-dp-25/
 - [ ] Partitionierung einer natürlichen Zahl
 - [x] [Springerproblem](#Springerproblem)
 - [ ] Subset Sum
-- [ ] Sudoku
+- [x] [Sudoku](#Sudoku)
 - [ ] Testmusterkompaktierung
-- [ ] Traveling sales man
+- [x] [Traveling sales man](#Travelling-salesman)
 - [ ] Türme auf den ersten m Reihen
 - [x] [Türmeproblem](#Türmeproblem)
 - [ ] Turnpike reconstruction
@@ -795,6 +795,19 @@ Probiere rekursiv (nach Tiefensuche) alle Möglichkeiten aus
     Wenn die Möglichkeit nicht zur Lösung führt, gehe einen Schritt im Entscheidungsbaum zurück, und probiere eine der anderen Möglichkeiten
     Wenn eine Möglichkeit nicht funktioniert, gib false zurück
 Wenn die letzte getestete Möglichkeit nicht funktioniert, gib 0 zurück
+```
+
+### Sudoku
+```
+1. Fülle unbekannte Werte mit Null
+2. Iteriere über jedes Feld
+    3. Solange dieser Vorschlag eine 0 ist oder mit anderen Zahlen kollidiert
+        4. Erhöhe um 1
+    5. Ist das Ergebnis eine 10? // dann war kein Vorschlag valide
+        6. Ja, 
+        - dann entferne die 10 aus der Matrix
+        - erhöhe den vorherigen Wert um 1
+        - starte damit wieder bei Schritt 3
 ```
 
 ### Travelling Salesman
