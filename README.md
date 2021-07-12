@@ -68,19 +68,19 @@ Tipps:
 ### Anzahl der nicht-negativen
 ```
 def count_none_negative(N, left, right) {
-        // Base
-        if (left >= right) {
-            return N[left] >= 0 ? 1 : 0
-        }
-
-        // Divide
-        center = (left + right) / 2
-        left_nn = count_none_negative(N, left, center)
-        right_nn = count_none_negative(N, center + 1, right)
-		
-        // Conquer
-        return left_nn + right_nn
+    // Base
+    if (left >= right) {
+        return N[left] >= 0 ? 1 : 0
     }
+
+    // Divide
+    center = (left + right) / 2
+    left_nn = count_none_negative(N, left, center)
+    right_nn = count_none_negative(N, center + 1, right)
+    
+    // Conquer
+    return left_nn + right_nn
+}
 ```
 
 Laufzeitanalyse:
@@ -95,38 +95,38 @@ Fall 1 --> T(n) = Θ(n)
 ### Anzahl von Vertauschungen in einer unsortierten Liste
 ```
 def MergeAndCount(A, li, m, re) {
-        int i, j, k, n
-        int aux[2]
-        for (i=m+1; i > li; i--){
-            aux[i-1] = a[i-1]
-        }
-        for (j=m; j<re; j++){
-             aux[re+m-j] = a[j+1]
-        }
-        n = 0
-        for (k=li, k<= re; k++) {
-            if (aux[j] < aux[i]){
-                a[k] = aux[j--]
-                if (i<=m){
-                    n+= m-i+1
-                }
+    int i, j, k, n
+    int aux[2]
+    for (i=m+1; i > li; i--){
+        aux[i-1] = a[i-1]
+    }
+    for (j=m; j<re; j++){
+            aux[re+m-j] = a[j+1]
+    }
+    n = 0
+    for (k=li, k<= re; k++) {
+        if (aux[j] < aux[i]){
+            a[k] = aux[j--]
+            if (i<=m){
+                n+= m-i+1
             }
-            else {
-                a[k] = aux[i++]
-            }
+        }
+        else {
+            a[k] = aux[i++]
         }
     }
+}
 
-    def NumberofInversions(X, li, re){
-        if (re<=li){
-            return 0
-        }
-        m = (li+re)/2
-        n1 = NumberofInversions(X, li, m)
-        n2 = NumberofInversions(X, m+1, re)
-        n3 = MergeAndCount (x, li, m, re)
-        return n1 + n2 + n3
+def NumberofInversions(X, li, re){
+    if (re<=li){
+        return 0
     }
+    m = (li+re)/2
+    n1 = NumberofInversions(X, li, m)
+    n2 = NumberofInversions(X, m+1, re)
+    n3 = MergeAndCount (x, li, m, re)
+    return n1 + n2 + n3
+}
 ```
 
 ### Binärdarstellung
@@ -335,6 +335,13 @@ b=2
 f(n)= O(1)
 Fall 1 --> Θ(n)
 ```
+
+### k-t größtes Element
+Naiv: Liste mit MergeSort sortieren und dann das k(-1)-te Element nehmen. Laufzeit: O(n log n)
+
+Eine Alternative ist QuickSelect. Das ist wie QuickSort, nur dass man aufhört, sobald das Pivot Element das k-te Element ist (da das Pivot Element immer direkt an die richtige Stelle gesetzt wird, und dann der Rest entsprechend partitioniert wird.
+
+![GeeksforGeeks Artikel](https://www.geeksforgeeks.org/kth-smallestlargest-element-unsorted-array/)
 
 ### Maximale-konsekutive Teilfolge
 ```
